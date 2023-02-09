@@ -34,14 +34,14 @@ PatternMatchModule.hello(fred)
 # PatternMatchModule.hello(%{age: "95", favorite_color: "Taupe"}) # ** (FunctionClauseError) no function clause matching in PatternMatchModule.hello/1
 PatternMatchModule.hello(bob)
 
-# defmodule Greeter2 do
-#   def hello(%{name: person_name} = person) do
-#     IO.puts "Greeter2 Hello, " <> person_name
-#     IO.inspect person
-#   end
-# end
+defmodule Greeter2 do
+  def hello(%{name: person_name} = person) do
+    IO.puts "Greeter2 Hello, " <> person_name
+    IO.inspect person
+  end
+end
 
-# Greeter2.hello(bob)
+Greeter2.hello(bob)
 
 defmodule Greeter3 do
   def hello(%{name: person_name}= person ) do
@@ -49,9 +49,9 @@ defmodule Greeter3 do
     IO.inspect person
   end
 end
+
 abc = %{
   yuser: "eewqes",
   name: "asdqwe",
 }
-
 Greeter3.hello(abc)
