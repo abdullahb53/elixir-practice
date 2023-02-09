@@ -28,5 +28,4 @@ defmodule Greeter2 do
   defp phrase("es"), do: "Hola, "
 end
 
-resp = Greeter2.hello ["Sean", "Steve"]
-IO.puts(resp)
+IO.puts(Greeter2.hello ["Sean", "Steve"])
