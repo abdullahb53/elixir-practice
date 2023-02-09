@@ -3,22 +3,22 @@ defmodule Greeter do
 
   def hello(names) when is_list(names) do
     names = Enum.join(names,", ")
-    IO.puts(names)
+
+    hello(names)
   end
 
-  defp phrase(), do: "STR, "
-
   def hello(names) when is_binary(names) do
-    res = phrase() <> names
-    IO.puts(res)
+    phrase() <> names
+
   end
 
   def hello(_) do
     IO.puts("Unexpected statement.")
   end
 
+  defp phrase(), do: "Hello, "
 
 end
 
 
-Greeter.hello(["Sean", "Steve"])
+IO.puts(Greeter.hello(["Sean", "Steve"]))
