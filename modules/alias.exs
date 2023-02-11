@@ -15,24 +15,6 @@ import List, except: [last: 1] # not work last
 import List, only: :functions
 import List, only: :macros
 
-# use.
-
-defmodule Hello do
-  defmacro __using__(_opts) do
-
-    quote do
-      def hello(name), do: "Hi, #{name}"
-    end
-  end
-
-end
-
-defmodule Example do
-  use Hello
-end
-
-IO.puts(Example.hello("Abdullah")) # Hi, Abdullah
-
 #
 #
 #
