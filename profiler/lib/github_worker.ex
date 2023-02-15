@@ -19,9 +19,9 @@ defmodule Profiler.GithubWorker do
     {:reply, state, state}
   end
 
-  @imple true
-  def handle_info(:refresh , _state) do
-    IO.puts("GithubWorker handle_info(:refresh, state)")
+  @impl true
+  def handle_info(:refresh, _state) do
+    IO.puts("GithubWorker handle_info(:refresh, _state)")
 
     #  {:ok, %HTTPoison.Response{status_code: 200, body: "{\"login\":\"abdullah
     HTTPoison.start()
@@ -33,14 +33,14 @@ defmodule Profiler.GithubWorker do
 
 
     new_state = Map.take(response,["name","blog","avatar_url"])
-    GenServer.cast(Profiler.Manager, {:update_and_merge, new_state})
+    GenServer.cast(Profiler.Manager, {:update_and_merge, @me , new_state})
 
-    Process.send_after(self(), :refresh, 10000)
+    Process.send_after(self(), :refresh, 60000)
 
     {:noreply, new_state}
   end
 
-  @imple true
+  @impl true
   def handle_info(_,state) do
     {:noreply, state}
   end
