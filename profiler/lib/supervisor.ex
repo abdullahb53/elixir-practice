@@ -13,6 +13,7 @@ defmodule Profiler.Supervisor do
     children = [
       {Profiler.Manager,  [name: Profiler.Manager]},
       {Profiler.GithubWorker,  [name: Profiler.GithubWorker]},
+      {Profiler.AgeWorker,  [name: Profiler.AgeWorker]},
     ]
 
     Supervisor.init(children, strategy: :one_for_one)
