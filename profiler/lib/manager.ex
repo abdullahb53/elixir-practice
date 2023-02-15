@@ -25,13 +25,14 @@ defmodule Profiler.Manager do
   end
 
   @impl true
-  def handle_cast({:update_and_merge, data}, state) do
+  def handle_cast({:update_and_merge, caller, data}, state) do
+    IO.inspect("#{caller} want to merge #{inspect(data)}")
     new_state = Map.merge(state, data)
     {:noreply, new_state}
   end
 
   @impl true
-  def hanlde_info(_,state) do
+  def handle_info(_, state) do
     {:noreply, state}
   end
 
