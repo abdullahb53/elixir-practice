@@ -4,12 +4,8 @@ defmodule Chat do
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Chat.hello()
-      :world
+  iex --sname kate@localhost -S mix
+  iex(kate@localhost)1> Chat.send_message(:alex@localhost, "how are you?")
 
   """
   def receive_message(message) do
