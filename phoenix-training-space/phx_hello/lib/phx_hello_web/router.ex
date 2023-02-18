@@ -14,10 +14,33 @@ defmodule PhxHelloWeb.Router do
     plug :accepts, ["json"]
   end
 
+  # Creating new pipeline. Actually
+  # i can use same plugs in other pipeline scopes.
+  pipeline :review_checks do
+    plug :ensure_authenticated_user
+    plug :ensure_user_owns_review
+  end
+
   scope "/", PhxHelloWeb do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    resources "/reviews", ReviewController
+
+    # Nested API.
+    resources "/users", UserController do
+      resources "/posts", PostController
+    end
+    resources "/posts", PostController, only: [:index, :show]
+    resources "/comments", CommentController, except: [:delete]
+  end
+
+  # iex> ...Helpers.admin_review_path(HelloWeb.Endpoint, :show, 1234)
+  scope "/admin", PhxHelloWeb.Admin , as: :admin do
+    pipe_through :browser
+
+    resources "/reviews", ReviewController
   end
 
   # Other scopes may use custom stacks.
