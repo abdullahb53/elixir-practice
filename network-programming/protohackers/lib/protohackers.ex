@@ -1,6 +1,6 @@
-defmodule Echoserver do
+defmodule Protohackers do
   @moduledoc """
-  Documentation for `Echoserver`.
+  Documentation for `Protohackers`.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule Echoserver do
 
   ## Examples
 
-      iex> Echoserver.hello()
+      iex> Protohackers.hello()
       :world
 
   """

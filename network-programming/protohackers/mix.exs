@@ -1,9 +1,9 @@
-defmodule Echoserver.MixProject do
+defmodule Protohackers.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :echoserver,
+      app: :protohackers,
       version: "0.1.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
@@ -15,7 +15,7 @@ defmodule Echoserver.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {Echoserver.Application, []}
+      mod: {Protohackers.Application, []}
     ]
   end
 
