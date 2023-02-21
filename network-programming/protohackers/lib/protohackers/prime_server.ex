@@ -1,4 +1,4 @@
-defmodule Protohackers.EchoServer do
+defmodule Protohackers.PrimeServer do
   use GenServer
 
   require Logger
@@ -20,9 +20,9 @@ defmodule Protohackers.EchoServer do
       exit_on_close: false
     ]
 
-    case :gen_tcp.listen(5001, listen_options) do
+    case :gen_tcp.listen(5002, listen_options) do
       {:ok, listen_socket} ->
-        Logger.info("Starting echo server on port 5001")
+        Logger.info("Starting prime server on port 5002")
         state = %__MODULE__{listen_socket: listen_socket, supervisor: supervisor}
         {:ok, state, {:continue, :accept}}
 
