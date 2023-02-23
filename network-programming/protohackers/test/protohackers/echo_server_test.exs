@@ -1,5 +1,5 @@
 defmodule Protohackers.EchoServerTest do
-  use ExUnit.Case
+  use ExUnit.Case, astync: true
 
   test "echoes anything back" do
     {:ok, socket} = :gen_tcp.connect(~c"localhost", 5001, mode: :binary, active: false)
@@ -10,6 +10,7 @@ defmodule Protohackers.EchoServerTest do
   end
 
 
+  @tag :capture_log
   test "echo server has a max buffer size" do
     {:ok, socket} = :gen_tcp.connect(~c"localhost", 5001, mode: :binary, active: false)
     assert :gen_tcp.send(socket, :binary.copy("a", 1024*100 + 1)) == :ok
