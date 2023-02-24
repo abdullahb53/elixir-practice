@@ -11,7 +11,8 @@ defmodule Protohackers.Application do
       Protohackers.EchoServer,
       Protohackers.PrimeServer,
       Protohackers.PricesServer,
-      Protohackers.BudgetChatServer
+      Protohackers.BudgetChatServer,
+      Protohackers.UdpServer
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
