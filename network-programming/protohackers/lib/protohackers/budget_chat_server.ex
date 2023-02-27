@@ -103,17 +103,17 @@ defmodule Protohackers.BudgetChatServer do
 
         handle_chat_session(socket, ets, username)
 
-        {:error, _reason} ->
-          all_sockets = :ets.match(ets, {:"$1", :_})
+      {:error, _reason} ->
+        all_sockets = :ets.match(ets, {:"$1", :_})
 
-          for [other_socket] <- all_sockets, other_socket != socket do
-            # dont use -> :ok = ...
-            :gen_tcp.send(other_socket, "#{username} left\n")
-          end
+        for [other_socket] <- all_sockets, other_socket != socket do
+          # dont use -> :ok = ...
+          :gen_tcp.send(other_socket, "#{username} left\n")
+        end
 
 
-          _ = :gen_tcp.close(socket)
-          :ets.delete(ets, socket)
+        _ = :gen_tcp.close(socket)
+        :ets.delete(ets, socket)
 
     end
   end
