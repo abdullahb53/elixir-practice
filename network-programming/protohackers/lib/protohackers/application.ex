@@ -13,8 +13,7 @@ defmodule Protohackers.Application do
       Protohackers.PricesServer,
       Protohackers.BudgetChatServer,
       Protohackers.UdpServer,
-      Protohackers.Mitm.Supervisor,
-      Protohackers.Mitm.Acceptor
+      Protohackers.Mitm.Supervisor
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
