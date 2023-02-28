@@ -8,7 +8,13 @@ defmodule Protohackers.Mitm.Acceptor do
   end
 
   def run do
-    case :gen_tcp.listen(5006, [:binary, ifaddr: {0,0,0,0}, active: true, reuseaddr: true]) do
+    case :gen_tcp.listen(5006, [
+      :binary,
+      ifaddr: {0,0,0,0},
+      active: :once,
+      packet: :line,
+      reuseaddr: true
+      ]) do
     {:ok, listen_socket} ->
       Logger.info("MITM server listening on port 5006")
       accept_loop(listen_socket)
