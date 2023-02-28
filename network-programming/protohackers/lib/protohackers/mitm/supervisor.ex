@@ -7,7 +7,11 @@ defmodule Protohackers.Mitm.Supervisor do
 
   @impl true
   def init(:no_args) do
-    children = []
+    children = [
+      Protohackers.Mitm.ConnectionSupervisor,
+      Protohackers.Mitm.Acceptor
+
+    ]
     Supervisor.init(children, strategy: :one_for_one)
   end
 
