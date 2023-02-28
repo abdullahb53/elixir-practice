@@ -7,8 +7,11 @@ defmodule Protohackers.Mitm.ConnectionSupervisor do
 
   def start_child(socket) do
     child_spec = {Protohackers.Mitm.Connection, socket}
+    
     with {:ok, conn} <- DynamicSupervisor.start_child(__MODULE__,child_spec),
-      :ok <- :gen_tcp.controlling_process(socket, conn) do
+        :ok <- :gen_tcp.controlling_process(socket, conn) do
+      {:ok, conn} 
+      
     end
   end
 
