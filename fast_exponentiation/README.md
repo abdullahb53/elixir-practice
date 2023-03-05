@@ -1,6 +1,6 @@
 # FastExponentiation
 
-**McGraw-Hill Forouzan Networking Series Cryptography and Network Security page.180**
+**McGraw-Hill Forouzan Networking Series Cryptography and Network Security**
 
 ## Installation
 
