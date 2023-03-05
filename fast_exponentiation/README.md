@@ -2,8 +2,6 @@
 
 **McGraw-Hill Forouzan Networking Series Cryptography and Network Security page.180**
 
-**usage: FastExponentiation.calc(2,3)**
-
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
@@ -15,6 +13,10 @@ def deps do
     {:fast_exponentiation, "~> 0.1.0"}
   ]
 end
+```
+
+```elixir
+FastExponentiation.calc(2,3)
 ```
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
