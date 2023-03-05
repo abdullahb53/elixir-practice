@@ -16,7 +16,7 @@ end
 ```
 
 ```elixir
-FastExponentiation.calc(2,3)
+FastExponentiation.calc(2,3) # result: 8.0
 ```
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
