@@ -1,6 +1,8 @@
 # FastExponentiation
 
-**TODO: Add description**
+**McGraw-Hill Forouzan Networking Series Cryptography and Network Security page.180**
+
+**usage: FastExponentiation.calc(2,3)**
 
 ## Installation
 
